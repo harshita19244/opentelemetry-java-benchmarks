@@ -8,26 +8,26 @@ These tests measure the cost of a simple string concatenation using two constant
 This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java):
 
 ```xml
-    <project>
-  <dependencyManagement>
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.opentelemetry</groupId>
+                <artifactId>opentelemetry-bom</artifactId>
+                <version>1.1.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
-      <dependency>
-        <groupId>io.opentelemetry</groupId>
-        <artifactId>opentelemetry-bom</artifactId>
-        <version>1.1.0</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+        </dependency>
     </dependencies>
-  </dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId>io.opentelemetry</groupId>
-      <artifactId>opentelemetry-api</artifactId>
-    </dependency>
-  </dependencies>
 </project>
-
 ```
 
 Additionally, it also uses the following tracer dependencies
@@ -40,7 +40,7 @@ Additionally, it also uses the following tracer dependencies
         <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
-        </dependency>
+    </dependency>
 ```
 
 ## Results
