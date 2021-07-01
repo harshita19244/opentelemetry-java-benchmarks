@@ -1,0 +1,4 @@
+JMH S 53 io.opentelemetry.benchmark.BenchmarkbillingThroughput S 86 io.opentelemetry.benchmark.jmh_generated.BenchmarkbillingThroughput_OtlpTracer_jmhTest S 10 OtlpTracer S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 53 io.opentelemetry.benchmark.BenchmarkbillingThroughput S 88 io.opentelemetry.benchmark.jmh_generated.BenchmarkbillingThroughput_jaegerTracer_jmhTest S 12 jaegerTracer S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 53 io.opentelemetry.benchmark.BenchmarkbillingSampleTime S 86 io.opentelemetry.benchmark.jmh_generated.BenchmarkbillingSampleTime_OtlpTracer_jmhTest S 10 OtlpTracer S 10 SampleTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
+JMH S 53 io.opentelemetry.benchmark.BenchmarkbillingSampleTime S 88 io.opentelemetry.benchmark.jmh_generated.BenchmarkbillingSampleTime_jaegerTracer_jmhTest S 12 jaegerTracer S 10 SampleTime E A 1 1 1 E E E E E E E E E E E E E E E E E 
