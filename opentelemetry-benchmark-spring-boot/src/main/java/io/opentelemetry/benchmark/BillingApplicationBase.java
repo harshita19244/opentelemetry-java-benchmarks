@@ -10,6 +10,7 @@ import io.opentelemetry.benchmark.billingapp.model.*;
 import io.opentelemetry.benchmark.billingapp.persistence.Invoicerepo;
 import io.opentelemetry.benchmark.billingapp.service.InvoiceService;
 import io.opentelemetry.benchmark.billingapp.service.traced.InvoiceServiceTraced;
+import io.opentelemetry.benchmark.billingapp.service.untraced.InvoiceServiceUntraced;
 
 public class BillingApplicationBase {
 
@@ -25,7 +26,7 @@ public class BillingApplicationBase {
         //Spring bean used in benchmark method
         InvoiceService invoiceService;
         InvoiceServiceTraced invoiceTracedService;
-
+        //InvoiceServiceUntraced invoiceServiceUntraced;
         //Data objects
         Invoice invoice;
         LineItem item;
@@ -60,17 +61,17 @@ public class BillingApplicationBase {
         }
     }
 
-    // public static class StateVariablesNoInstrumentation extends StateVariables {
-    //     @Setup(Level.Iteration)
-    //     public void doSetup() {
+    public static class StateVariablesNoInstrumentation extends StateVariables {
+        @Setup(Level.Iteration)
+        public void doSetup() {
 
-    //         System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "NO_INSTRUMENTATION");
+            System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "NO_INSTRUMENTATION");
 
-    //         c = SpringApplication.run(BillingApplication.class);
-    //         invoiceService =  c.getBean("invoiceServiceImpl", InvoiceService.class);
-    //         repository = c.getBean(Invoicerepo.class);
-    //     }
-    // }
+            c = SpringApplication.run(BillingApplication.class);
+            invoiceService =  c.getBean("invoiceServiceUntraced", InvoiceServiceUntraced.class);
+            repository = c.getBean(Invoicerepo.class);
+        }
+    }
 
     public static class StateVariablesJaeger extends StateVariables {
         @Setup(Level.Iteration)
@@ -97,10 +98,10 @@ public class BillingApplicationBase {
     }
     
 
-    // public Invoice doBenchmarkBillingNoInstrumentation(StateVariables state) {
-    //     //Create invoice
-    //     return issueInvoice(state, state.invoiceService);
-    // }
+    public Invoice doBenchmarkBillingNoInstrumentation(StateVariables state) {
+        //Create invoice
+        return issueInvoice(state, state.invoiceService);
+    }
 
     public Invoice doBenchmarkBillingJaegerTracer(StateVariablesJaeger state) {
         //Create invoice

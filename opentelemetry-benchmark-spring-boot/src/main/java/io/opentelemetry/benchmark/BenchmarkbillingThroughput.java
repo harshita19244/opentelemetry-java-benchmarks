@@ -8,11 +8,11 @@ import io.opentelemetry.benchmark.billingapp.model.Invoice;
 
 public class BenchmarkbillingThroughput extends BillingApplicationBase {
 
-    // @Benchmark
-    // @BenchmarkMode(Mode.Throughput)
-    // public Invoice noInstrumentation(StateVariablesNoInstrumentation state) {
-    //     return doBenchmarkBillingNoInstrumentation(state);
-    // }
+    @Benchmark
+    @BenchmarkMode(Mode.Throughput)
+    public Invoice noInstrumentation(StateVariablesNoInstrumentation state) {
+        return doBenchmarkBillingNoInstrumentation(state);
+    }
 
     @Benchmark
     @BenchmarkMode(Mode.Throughput)

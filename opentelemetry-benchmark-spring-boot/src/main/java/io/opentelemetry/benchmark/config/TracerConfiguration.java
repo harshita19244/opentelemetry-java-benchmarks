@@ -1,6 +1,8 @@
 package io.opentelemetry.benchmark.config;
 
+import io.opentelemetry.api.OpenTelemetry;
 import io.opentelemetry.api.trace.Tracer;
+import io.opentelemetry.api.trace.TracerProvider;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import io.opentelemetry.exporter.jaeger.JaegerGrpcSpanExporter;
@@ -11,7 +13,7 @@ import io.opentelemetry.sdk.trace.SdkTracerProvider;
 import io.opentelemetry.sdk.trace.export.SimpleSpanProcessor;
 import io.opentelemetry.sdk.trace.export.BatchSpanProcessor;
 import io.opentelemetry.sdk.autoconfigure.OpenTelemetrySdkAutoConfiguration;
-//import io.opentelemetry.extension.noopapi;
+import io.opentelemetry.extension.noopapi.NoopOpenTelemetry;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.context.annotation.Bean;
@@ -20,12 +22,12 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class TracerConfiguration {
-
-    // @Profile("NO_INSTRUMENTATION")
-    // @Bean
-    // public Tracer initNoinstrumentation(){
-    //     return null;
-    // }
+    
+    @Profile("NO_INSTRUMENTATION")
+    @Bean
+    public Tracer initNoinstrumentation(){
+        return Noinstrumentation();
+    }
 
     @Profile("JAEGERTRACER")
     @Bean
@@ -39,6 +41,12 @@ public class TracerConfiguration {
         return initOtlp("localhost", 9411);
     }
 
+    private Tracer Noinstrumentation(){
+        OpenTelemetry opentelemetry = NoopOpenTelemetry.getInstance();
+        Tracer tracer = opentelemetry.getTracer("nooptracer");
+        return tracer;
+
+    }
     
     private Tracer initJaeger(String jaegerHostName, int jaegerPort) {
         // Create a channel towards Jaeger end point

@@ -3,18 +3,20 @@ package io.opentelemetry.benchmark.billingapp.service.traced;
 import io.opentelemetry.benchmark.billingapp.service.untraced.InvoiceServiceUntraced;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.AbstractEnvironment;
+import org.springframework.stereotype.Component;
 
 import io.opentelemetry.api.trace.Span;
 import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.benchmark.billingapp.model.Invoice;
 import io.opentelemetry.benchmark.billingapp.service.TaxService;
 
+@Component
 public class InvoiceServiceTraced extends InvoiceServiceUntraced{
     @Autowired
     private TracedNotificationService notificationService;
 
-    // @Autowired
-    // private TracedTaxService taxService;
+    @Autowired
+    private TracedTaxService taxService;
 
     @Autowired
     public Tracer tracer;
@@ -35,8 +37,8 @@ public class InvoiceServiceTraced extends InvoiceServiceUntraced{
         return notificationService;
     }
 
-    // @Override
-    // public TaxService getTaxesService() {
-    //     return taxService;
-    // }
+    @Override
+    public TaxService getTaxesService() {
+        return taxService;
+    }
 }

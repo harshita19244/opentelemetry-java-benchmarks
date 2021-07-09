@@ -1,0 +1,4 @@
+package io.opentelemetry.benchmark.jmh_generated;
+public class BenchmarkSimpleServletBase_StateVariablesOtlpWithMetricFilters_jmhType extends BenchmarkSimpleServletBase_StateVariablesOtlpWithMetricFilters_jmhType_B3 {
+}
+

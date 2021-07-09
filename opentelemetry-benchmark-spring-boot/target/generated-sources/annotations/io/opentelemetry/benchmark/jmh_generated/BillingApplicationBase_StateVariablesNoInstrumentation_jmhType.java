@@ -1,0 +1,4 @@
+package io.opentelemetry.benchmark.jmh_generated;
+public class BillingApplicationBase_StateVariablesNoInstrumentation_jmhType extends BillingApplicationBase_StateVariablesNoInstrumentation_jmhType_B3 {
+}
+

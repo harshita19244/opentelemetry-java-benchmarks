@@ -20,7 +20,7 @@ public class Main {
                 .warmupIterations(5)
                 .measurementIterations(5)
                 .forks(1)
-                .threads(1)
+                .threads(5)
                 .resultFormat(resultsFileOutputType)
                 .result(buildResultsFileName(resultFilePrefix, resultsFileOutputType))
                 .jvmArgs("-server", "-Xms2048m", "-Xmx2048m")

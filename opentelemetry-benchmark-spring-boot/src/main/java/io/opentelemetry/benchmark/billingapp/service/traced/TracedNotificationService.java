@@ -5,8 +5,9 @@ import io.opentelemetry.api.trace.Tracer;
 import io.opentelemetry.benchmark.billingapp.model.Invoice;
 import io.opentelemetry.benchmark.billingapp.service.untraced.NotificationServiceUntraced;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class TracedNotificationService extends NotificationServiceUntraced {
     @Autowired
     public Tracer tracer;

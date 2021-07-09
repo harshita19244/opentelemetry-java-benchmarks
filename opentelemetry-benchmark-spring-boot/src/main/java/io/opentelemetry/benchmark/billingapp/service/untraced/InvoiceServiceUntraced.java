@@ -98,6 +98,7 @@ public class InvoiceServiceUntraced implements InvoiceService {
     }
 
     private Long generateInvoiceNumber() {
+        invoiceNumber = 0L;
         return invoiceNumber++;
     }
 
