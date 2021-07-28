@@ -10,7 +10,7 @@ The tests require a Jaeger and OTLP client to run in the background.
 The tests can be executed with the Jaeger client as follows:
 
 ```xml
-java -javaagent:C:/Users/USer/IdeaProjects/opentelemetry-benchmarks/opentelemetry-javaagent-all.jar \
+java -javaagent:<path>/<to>/opentelemetry-javaagent-all.jar \
      -Dotel.resource.attributes=service.name=your-service-name \
      -Dotel.traces.exporter=jaeger \
      -Dotel.metrics.exporter=jaeger \
