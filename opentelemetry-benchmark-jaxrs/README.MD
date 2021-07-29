@@ -1,28 +1,71 @@
 
 ## Description
 
-These tests use sample Jax-rs with a spring boot application containing a basic course management process. This application exposes a JAX-RS endpoint for the CourseResource. The tests consist of client rest calls .using unirest to get a list of all the courses in a non instrumented scenario and instrumented with different tracers. 
+These tests measure the cost of a simple string concatenation using two constant strings "Hello" and "world" with an iteration number i. The tests use the OpenTelemetry SDK to instrument the code and then use two different trace exporters to send trace data. The Jaeger and the OTLP trace exporters are used to create spans and set attribute data, and additionally log the resultatnt message of string concatenation. 
 
 ## Dependencies
 
-This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java-instrumentation):
-The tests require a Jaeger and OTLP client to run in the background. 
-The tests can be executed with the Jaeger client as follows:
+This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java):
 
 ```xml
-java -javaagent:<path>/<to>/opentelemetry-javaagent-all.jar \
-     -Dotel.resource.attributes=service.name=your-service-name \
-     -Dotel.traces.exporter=jaeger \
-     -Dotel.metrics.exporter=jaeger \
-     -Dotel.exporter.jaeger.endpoint=http://localhost:14250/ \
-     -jar target/benchmarks.jar
+    <project>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.opentelemetry</groupId>
+        <artifactId>opentelemetry-bom</artifactId>
+        <version>1.1.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>io.opentelemetry</groupId>
+      <artifactId>opentelemetry-api</artifactId>
+    </dependency>
+  </dependencies>
+</project>
 
+```
+
+Additionally, it also uses the following tracer dependencies
+
+```xml
+    <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-jaeger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-exporter-otlp</artifactId>
+        </dependency>
 ```
 
 ## Results
 
 The latest results are located [here]().
 Graphs are constructed based on raw results located in the ``results`` folder.
+
+## SampleTime metrics
+
+- X axis: represents each execution result.
+- Y axis: represents how long time it takes for the benchmark method to execute.
+
+![BenchmarkStringConcatenationSampleTime-5](results-imgs/BenchmarkStringConcatenationSampleTime5.png)
+
+![BenchmarkStringConcatenationSampleTime-6](results-imgs/BenchmarkStringConcatenationSampleTime6.png)
+
+## Throughput metrics
+
+- X axis: represents each execution result.
+- Y axis: represents of number of operations per second  (the number of times per second the benchmark method could be executed).
+
+![BenchmarkStringConcatenationThroughput-5](results-imgs/BenchmarkStringConcatenationThroughput5.png)
+
+![BenchmarkStringConcatenationThroughput-6](results-imgs/BenchmarkStringConcatenationThroughput6.png)
+
 
 ## Environment
 The tests were executed in a personal notebook with these characteristics:
