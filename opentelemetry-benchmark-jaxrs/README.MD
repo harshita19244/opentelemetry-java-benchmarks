@@ -6,7 +6,18 @@ These tests use sample Jax-rs with a spring boot application containing a basic 
 ## Dependencies
 
 This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java-instrumentation):
+The tests require a Jaeger and OTLP client to run in the background. 
+The tests can be executed with the Jaeger client as follows:
 
+```xml
+java -javaagent:<path>/<to>/opentelemetry-javaagent-all.jar \
+     -Dotel.resource.attributes=service.name=your-service-name \
+     -Dotel.traces.exporter=jaeger \
+     -Dotel.metrics.exporter=jaeger \
+     -Dotel.exporter.jaeger.endpoint=http://localhost:14250/ \
+     -jar target/benchmarks.jar
+
+```
 
 ## Results
 
