@@ -12,32 +12,10 @@ public class BenchmarkSimpleServlet extends BenchmarkSimpleServletBase{
     @BenchmarkMode(Mode.SingleShotTime)
     @Warmup(iterations = 1)
     @Measurement(iterations = 1)
-    public void testABSimpleRequest(StateVariablesNoInstrumentation state)
-            throws Exception {
-        String outputFile = ResultsFileNameBuilder.buildResultsFileName("ab-not-instrumented-", ResultFormatType.CSV);
+    public void testABSimpleRequest(StateVariablesInstrumentation state) throws Exception {
+        String outputFile = ResultsFileNameBuilder.buildResultsFileName("ab-instrumented-", ResultFormatType.CSV);
         runABTest(outputFile);
     }
-
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @Warmup(iterations = 1)
-    @Measurement(iterations = 1)
-    public void testABSimpleRequestJaegerWithoutMetricFilters(StateVariablesJaegerWithoutMetricFilters state)
-            throws Exception {
-        String outputFile = ResultsFileNameBuilder.buildResultsFileName("ab-jaeger-", ResultFormatType.CSV);
-        runABTest(outputFile);
-    }
-
-    @Benchmark
-    @BenchmarkMode(Mode.SingleShotTime)
-    @Warmup(iterations = 1)
-    @Measurement(iterations = 1)
-    public void testABSimpleRequestOtlpWithoutMetricFilters(StateVariablesOtlpWithoutMetricFilters state)
-            throws Exception {
-        String outputFile = ResultsFileNameBuilder.buildResultsFileName("ab-otlp-", ResultFormatType.CSV);
-        runABTest(outputFile);
-    }
-   
 
     private void runABTest(String outputFile) throws IOException {
         ProcessBuilder pb = new ProcessBuilder(

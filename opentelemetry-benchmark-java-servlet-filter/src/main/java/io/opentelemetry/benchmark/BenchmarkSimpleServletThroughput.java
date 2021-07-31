@@ -9,24 +9,8 @@ public class BenchmarkSimpleServletThroughput extends BenchmarkSimpleServletBase
     //Not instrumented
     @Benchmark
     @BenchmarkMode(Mode.Throughput)
-    public String noInstrumentation(StateVariablesNoInstrumentation state)
-            throws Exception {
+    public String Instrumentation(StateVariablesInstrumentation state) throws Exception {
         return super.testSimpleRequest(state);
     }
 
-    //Jaeger
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    public String jaegerTracer(StateVariablesJaegerWithoutMetricFilters state)
-            throws Exception {
-        return super.testSimpleRequest(state);
-    }
-
-    //Otlp
-    @Benchmark
-    @BenchmarkMode(Mode.Throughput)
-    public String OtlpTracer(StateVariablesOtlpWithoutMetricFilters state)
-            throws Exception {
-        return super.testSimpleRequest(state);
-    }
 }

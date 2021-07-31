@@ -8,7 +8,8 @@
     </parent>
     <groupId>io.opentelemetry.benchmark</groupId>
     <artifactId>opentelemetry-benchmark-spring-cloud</artifactId>
-    <version>1.0</version>
+    <version>0.0.1-SNAPSHOT</version>
+    <description>Demo project for Spring Boot</description>
     <packaging>jar</packaging>
 
     <name>Opentelemetry benchmark spring cloud java</name>
@@ -46,6 +47,7 @@
           -->
         <uberjar.name>benchmarks</uberjar.name>
         <jaeger.version>1.6.0</jaeger.version>
+        <spring.boot.mainclass>org.sample.benchmarks.BenchmarkPetclinic</spring.boot.mainclass>
          <!-- Web dependencies -->
          <webjars-bootstrap.version>5.0.1</webjars-bootstrap.version>
          <webjars-jquery-ui.version>1.12.1</webjars-jquery-ui.version>

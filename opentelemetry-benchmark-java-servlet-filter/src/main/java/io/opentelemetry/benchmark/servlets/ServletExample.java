@@ -12,8 +12,7 @@ import java.io.PrintWriter;
 public class ServletExample extends HttpServlet {
 
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         // Set the response message's MIME type
         response.setContentType("text/html;charset=UTF-8");
         // Allocate a output writer to write the response message into the network socket

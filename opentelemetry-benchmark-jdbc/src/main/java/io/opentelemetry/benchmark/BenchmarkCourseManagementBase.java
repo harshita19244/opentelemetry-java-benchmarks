@@ -2,25 +2,15 @@ package io.opentelemetry.benchmark;
 
 import io.opentelemetry.benchmark.course.CourseManagementApplication;
 import io.opentelemetry.benchmark.course.resources.CourseResource;
-import com.mashape.unirest.http.Unirest;
-import com.mashape.unirest.http.exceptions.UnirestException;
 import org.openjdk.jmh.annotations.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import javax.ws.rs.core.Response;
 
 public class BenchmarkCourseManagementBase {
 
-    public static final String HOST = "localhost";
-    public static final String PORT = "8080";
-
-    public String getAllCourses(StateVariables state)  {
-        String r = null;
-        try {
-            r = Unirest.get("http://" + HOST + ":" + PORT + "/rest/course/").asString().getBody();
-        } catch (UnirestException e) {
-            e.printStackTrace();
-        }
-        return r;
+    public Response getAllCourses(StateVariables state) {
+        return state.course.getAll();
     }
 
     @State(Scope.Benchmark)

@@ -64,6 +64,11 @@ Additionally, it also uses the following tracer dependencies
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-otlp</artifactId>
     </dependency>
+    <dependency>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-extension-noop-api</artifactId> 
+            <version>1.3.0-alpha</version>   
+    </dependency>
 ```
 
 ## Results
@@ -76,18 +81,18 @@ Graphs are constructed based on raw results located in the ``results`` folder.
 - X axis: represents each execution result.
 - Y axis: represents how long time it takes for the benchmark method to execute.
 
-![BenchmarkStringConcatenationSampleTime-5](results-imgs/BenchmarkStringConcatenationSampleTime5.png)
+![BenchmarkBillingApplicationSampleTime-5]()
 
-![BenchmarkStringConcatenationSampleTime-6](results-imgs/BenchmarkStringConcatenationSampleTime6.png)
+![BenchmarkBillingApplicationSampleTime-6]()
 
 ## Throughput metrics
 
 - X axis: represents each execution result.
 - Y axis: represents of number of operations per second  (the number of times per second the benchmark method could be executed).
 
-![BenchmarkStringConcatenationThroughput-5](results-imgs/BenchmarkStringConcatenationThroughput5.png)
+![BenchmarkBillingApplicationThroughput-5]()
 
-![BenchmarkStringConcatenationThroughput-6](results-imgs/BenchmarkStringConcatenationThroughput6.png)
+![BenchmarkStringApplicationThroughput-6]()
 
 
 ## Environment

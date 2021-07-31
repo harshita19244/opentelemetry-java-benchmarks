@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import javax.ws.rs.ApplicationPath;
 
 @Configuration
-@ApplicationPath("/resources")
+@ApplicationPath("/rest")
 public class JerseyConfiguration extends ResourceConfig {
 
     public JerseyConfiguration() {

@@ -1,4 +1,0 @@
-package io.opentelemetry.benchmark.jmh_generated;
-public class BenchmarkSimpleServletBase_StateVariablesNoInstrumentation_jmhType extends BenchmarkSimpleServletBase_StateVariablesNoInstrumentation_jmhType_B3 {
-}
-
