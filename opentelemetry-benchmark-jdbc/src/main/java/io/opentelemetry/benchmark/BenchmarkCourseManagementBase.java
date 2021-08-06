@@ -1,21 +1,22 @@
 package io.opentelemetry.benchmark;
 
 import io.opentelemetry.benchmark.course.CourseManagementApplication;
-import io.opentelemetry.benchmark.course.resources.CourseResource;
+import io.opentelemetry.benchmark.course.model.entities.Course;
+import io.opentelemetry.benchmark.course.model.services.CourseService;
 import org.openjdk.jmh.annotations.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import javax.ws.rs.core.Response;
+import java.util.List;
 
 public class BenchmarkCourseManagementBase {
 
-    public Response getAllCourses(StateVariables state) {
-        return state.course.getAll();
+    public List<Course> getAllCourses(StateVariables state) {
+        return state.service.findAll();
     }
 
     @State(Scope.Benchmark)
     public static class StateVariables {
-        public CourseResource course;
+        public CourseService service;
         public ConfigurableApplicationContext c;
 
         @TearDown(Level.Iteration)
@@ -25,7 +26,7 @@ public class BenchmarkCourseManagementBase {
 
         public void initApplication() {
             c = SpringApplication.run(CourseManagementApplication.class);
-            course = c.getBean(CourseResource.class);
+            service = c.getBean(CourseService.class);
         }
     }
 
