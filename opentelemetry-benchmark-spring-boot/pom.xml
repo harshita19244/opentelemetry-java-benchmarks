@@ -114,7 +114,7 @@
         <!--
             Java source/target to use for compilation.
           -->
-        <javac.target>14</javac.target>
+        <javac.target>11</javac.target>
 
         <!--
             Name of the benchmark Uber-JAR to generate.
