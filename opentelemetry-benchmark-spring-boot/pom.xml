@@ -114,13 +114,12 @@
         <!--
             Java source/target to use for compilation.
           -->
-        <javac.target>14</javac.target>
+        <javac.target>11</javac.target>
 
         <!--
             Name of the benchmark Uber-JAR to generate.
           -->
         <uberjar.name>benchmarks</uberjar.name>
-        <jaeger.version>1.6.0</jaeger.version>
         
     </properties>
     <build>
