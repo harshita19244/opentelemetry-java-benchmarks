@@ -81,30 +81,21 @@ Graphs are constructed based on raw results located in the ``results`` folder.
 - X axis: represents each execution result.
 - Y axis: represents how long time it takes for the benchmark method to execute.
 
-![BenchmarkBillingApplicationSampleTime-5]()
-
-![BenchmarkBillingApplicationSampleTime-6]()
+![BenchmarkBillingApplicationSampleTime-5](results-imgs/BareMetalRun1SampleTime.png)
 
 ## Throughput metrics
 
 - X axis: represents each execution result.
 - Y axis: represents of number of operations per second  (the number of times per second the benchmark method could be executed).
 
-![BenchmarkBillingApplicationThroughput-5]()
-
-![BenchmarkStringApplicationThroughput-6]()
+![BenchmarkBillingApplicationThroughput-5](results-imgs/BareMetalRun1Throughput.png)
 
 
 ## Environment
-The tests were executed in a personal notebook with these characteristics:
+The tests were executed in a Linux Bare Metal machine with the following characteristics: 
 
-- Model Name: Lenovo IdeaPad 530S-15IKB
-- Processor Name:	Intel Core i5 8th gen
-- Processor Speed:	1.8 GHz
-- Number of Processors:	8
-- Number of Cores: 4
-- L1 Cache: 256 KB
-- L2 Cache:	1.0 MB
-- L3 Cache:	6.0 MB
-- Memory:	8 GB
+- OS: CentOS 8
+- RAM: 32 GB
+- Disk: 1 x 240GB SSD
+- Processor: 1 x Intel(R) Xeon(R) CPU E3-1578L v5 @ 2.00GHz
 

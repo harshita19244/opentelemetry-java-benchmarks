@@ -8,7 +8,7 @@ These tests measure the cost of a simple string concatenation using two constant
 This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java):
 
 ```xml
-    <project>
+  <project>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -33,7 +33,7 @@ This project uses this [Opentelemetry dependency](https://github.com/open-teleme
 Additionally, it also uses the following tracer dependencies
 
 ```xml
-    <dependency>
+        <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-jaeger</artifactId>
         </dependency>
@@ -53,18 +53,14 @@ Graphs are constructed based on raw results located in the ``results`` folder.
 - X axis: represents each execution result.
 - Y axis: represents how long time it takes for the benchmark method to execute.
 
-![BenchmarkStringConcatenationSampleTime-5](results-imgs/BenchmarkStringConcatenationSampleTime5.png)
-
-![BenchmarkStringConcatenationSampleTime-6](results-imgs/BenchmarkStringConcatenationSampleTime6.png)
+![BenchmarkStringConcatenationSampleTime-5](results-imgs/BareMetalRun1SampleTime.png)
 
 ## Throughput metrics
 
 - X axis: represents each execution result.
 - Y axis: represents of number of operations per second  (the number of times per second the benchmark method could be executed).
 
-![BenchmarkStringConcatenationThroughput-5](results-imgs/BenchmarkStringConcatenationThroughput5.png)
-
-![BenchmarkStringConcatenationThroughput-6](results-imgs/BenchmarkStringConcatenationThroughput6.png)
+![BenchmarkStringConcatenationThroughput-5](results-imgs/BareMetalRun1Throughput.png)
 
 
 ## Environment

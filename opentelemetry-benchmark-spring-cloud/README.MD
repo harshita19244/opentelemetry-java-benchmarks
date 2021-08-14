@@ -10,7 +10,7 @@ The different tests measure the process of finding a pet owner by id in a non in
 This project uses this [Opentelemetry dependency](https://github.com/open-telemetry/opentelemetry-java):
 
 ```xml
-    <project>
+  <project>
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -35,7 +35,7 @@ This project uses this [Opentelemetry dependency](https://github.com/open-teleme
 Additionally, it also uses the following tracer dependencies
 
 ```xml
-    <dependency>
+        <dependency>
             <groupId>io.opentelemetry</groupId>
             <artifactId>opentelemetry-exporter-jaeger</artifactId>
         </dependency>
@@ -64,30 +64,21 @@ Graphs are constructed based on raw results located in the ``results`` folder.
 - X axis: represents each execution result.
 - Y axis: represents how long time it takes for the benchmark method to execute.
 
-![BenchmarkStringConcatenationSampleTime-5](results-imgs/BenchmarkStringConcatenationSampleTime5.png)
+![BenchmarkStringConcatenationSampleTime-5](results-imgs/)
 
-![BenchmarkStringConcatenationSampleTime-6](results-imgs/BenchmarkStringConcatenationSampleTime6.png)
 
 ## Throughput metrics
 
 - X axis: represents each execution result.
 - Y axis: represents of number of operations per second  (the number of times per second the benchmark method could be executed).
 
-![BenchmarkStringConcatenationThroughput-5](results-imgs/BenchmarkStringConcatenationThroughput5.png)
-
-![BenchmarkStringConcatenationThroughput-6](results-imgs/BenchmarkStringConcatenationThroughput6.png)
-
+![BenchmarkStringConcatenationThroughput-5](results-imgs/)
 
 ## Environment
-The tests were executed in a personal notebook with these characteristics:
+The tests were executed in a Linux Bare Metal machine with the following characteristics: 
 
-- Model Name: Lenovo IdeaPad 530S-15IKB
-- Processor Name:	Intel Core i5 8th gen
-- Processor Speed:	1.8 GHz
-- Number of Processors:	8
-- Number of Cores: 4
-- L1 Cache: 256 KB
-- L2 Cache:	1.0 MB
-- L3 Cache:	6.0 MB
-- Memory:	8 GB
+- OS: CentOS 8
+- RAM: 32 GB
+- Disk: 1 x 240GB SSD
+- Processor: 1 x Intel(R) Xeon(R) CPU E3-1578L v5 @ 2.00GHz
 
