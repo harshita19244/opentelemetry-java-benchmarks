@@ -59,7 +59,7 @@ java -jar target/benchmarks.jar
 
 ## Feedback
 
-Performance tests are tricky and we are sure that some things might have done better. We welcome your constructive comments and we appreciate PRs.
+Performance tests are tricky and there are additional cases that we wish to cover. Feedback will be highly appreciated.
 
 ## Results
 We use [JMH-visualizer](https://github.com/jzillmann/jmh-visualizer) to present the benchmark results. Thanks [jzillmann](https://github.com/jzillmann) 
