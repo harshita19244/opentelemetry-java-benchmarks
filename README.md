@@ -27,7 +27,7 @@ opentelemetry-benchmark-spring-cloud
 │   │
 │   └───petclinic
 │   │   ## Depending on the test, there is one package which contains the example application to be executed by JMH. 
-│   │      In this example for opentelemetru for spring cloud, the official petclinic application is used for the tests.
+│   │      In this example for opentelemetry for spring cloud, the official petclinic application is used for the tests.
 │   │    
 │   Benchmark*.java 
 │   ## The different JMH benchmark tests are located in this package
