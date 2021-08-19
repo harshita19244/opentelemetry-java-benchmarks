@@ -6,8 +6,8 @@ List of current tests:
 
 | Test                                            | No Instrumentation | Jaeger Trace Exporter | Otlp Trace Exporter | 
 | ----------------------------------------------- | ------------------ | ----------- | ----------- | 
-| Throughput, one span, one tag, one log message  |          ✓         |      ✓      |       ✓     |      
-| Time, one span, one tag, one log message        |          ✓         |      ✓      |       ✓     |     
+| Throughput |          ✓         |      ✓      |       ✓     |      
+| Sample Time      |          ✓         |      ✓      |       ✓     |     
 
 ## Code structure
 
