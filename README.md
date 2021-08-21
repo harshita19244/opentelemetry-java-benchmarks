@@ -57,6 +57,8 @@ mvn clean install
 java -jar target/benchmarks.jar
 ```
 
+The tests can also be executed on a bare metal server using an automated script. Kindly see ```runner``` for more details on running the project. 
+
 ## Feedback
 
 Performance tests are tricky and there are additional cases that we wish to cover. Feedback will be highly appreciated.
