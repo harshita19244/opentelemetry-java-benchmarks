@@ -1,6 +1,8 @@
 # Performance test runners
-
-This is a set of scripts used to setup the environment and execute the performance tests.
+In order to make the test reproducible, they were executed in a set of Equinix bare metal machines sponsored by the CNCF, as follows:
+ - x1.small.x86 (1x Intel(R) Xeon(R) CPU E3-1578L v5 @ 2.00GHz, 32GB RAM) Basic with 2GB RAM for Prometheus. 
+ - CentOS 8 has been used as the Linux distribution for all machines.
+This is a set of scripts used to setup the environment and execute the performance tests. 
 
 ## Setting up a remote host
 
