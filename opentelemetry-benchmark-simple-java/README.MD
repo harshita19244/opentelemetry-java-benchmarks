@@ -1,7 +1,7 @@
 
 ## Description
 
-These tests measure the cost of a simple string concatenation using two constant strings "Hello" and "world" with an iteration number i. The tests use the OpenTelemetry SDK to instrument the code and then use two different trace exporters to send trace data. The Jaeger and the OTLP trace exporters are used to create spans and set attribute data, and additionally log the resultatnt message of string concatenation. 
+These tests measure the cost of a simple string concatenation using two constant strings "Hello" and "world" with an iteration number i. The tests use the OpenTelemetry SDK to instrument the code and then use two different trace exporters to send trace data. The Jaeger and the OTLP trace exporters are used to create spans and set attribute data, and additionally log the resultant message of string concatenation. 
 
 ## Dependencies
 
