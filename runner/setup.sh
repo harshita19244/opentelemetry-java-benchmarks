@@ -4,15 +4,14 @@ RESULTS_DIR=${RESULTS_DIR:-/results}
 
 force=false
 
-while getopts f: flag
-do
+while getopts f: flag; do
     case "${flag}" in
-        f) force=true;;
+    f) force=true ;;
     esac
 done
 
 echo "🏗️ Preparing the perf runner host"
-dnf install -y git maven java-11-openjdk-devel > /tmp/setup.log 2>&1
+dnf install -y git maven java-11-openjdk-devel >/tmp/setup.log 2>&1
 if [ $? != 0 ]; then
     echo "🛑 Failed to install required packages"
     cat /tmp/setup.log
@@ -21,7 +20,7 @@ fi
 
 if [ ! -d ${WORK_DIR} ]; then
     echo "📦 Cloning the perf tests repo"
-    git clone https://github.com/harshita19244/opentelemetry-java-benchmarks.git ${WORK_DIR} > /tmp/setup-clone.log 2>&1
+    git clone https://github.com/harshita19244/opentelemetry-java-benchmarks.git ${WORK_DIR} >/tmp/setup-clone.log 2>&1
     if [ $? != 0 ]; then
         echo "🛑 Failed to clone the perf tests repo"
         cat /tmp/setup-clone.log
@@ -49,7 +48,6 @@ if [ $? != 0 ]; then
     exit 1
 fi
 
-
 echo "🔧 Configuring Java"
 alternatives --set javac /usr/lib/jvm/java-11-openjdk-11.0.12.0.7-0.el8_4.x86_64/bin/javac
 if [ $? != 0 ]; then
@@ -74,3 +72,14 @@ if [ $? != 0 ]; then
     echo "🛑 Failed to set jre_openjdk to Java 11"
     exit 1
 fi
+
+if [ ! -d /tmp/jaeger-1.25.0-linux-amd64 ]; then
+    echo "💾 Downloading Jaeger"
+    curl -sL https://github.com/jaegertracing/jaeger/releases/download/v1.25.0/jaeger-1.25.0-linux-amd64.tar.gz | tar xzf - -C /tmp/
+    if [ $? != 0 ]; then
+        echo "🛑 Failed to download Jaeger"
+        exit 1
+    fi
+fi
+
+echo "✅ Done!"
