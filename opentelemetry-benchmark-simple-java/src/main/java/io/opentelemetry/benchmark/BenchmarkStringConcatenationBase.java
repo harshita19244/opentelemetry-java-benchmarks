@@ -46,6 +46,8 @@ public class BenchmarkStringConcatenationBase {
         Span span = state.jaegertrace.spanBuilder("TestStringConcatenationStringBuilder").startSpan();
         span.setAttribute("Tag",getLogMessage(state));
         String message = getLogMessage(state);
+        span.addEvent("1");
+        span.end();
         return message;
     }
 
