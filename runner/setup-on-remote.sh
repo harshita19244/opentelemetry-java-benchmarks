@@ -1,5 +1,5 @@
 #!/bin/bash
-REMOTE_HOST=${REMOTE_HOST:-147.75.80.139}
+REMOTE_HOST=${REMOTE_HOST:-145.40.68.181}
 SETUP_OPTS=${SETUP_OPTS:-""}
 
 while getopts f: flag
