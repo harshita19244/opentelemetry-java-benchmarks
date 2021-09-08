@@ -23,7 +23,7 @@ public class Main {
                 .threads(1)
                 .resultFormat(resultsFileOutputType)
                 .result(buildResultsFileName(resultFilePrefix, resultsFileOutputType))
-                .jvmArgs("-server", "-Xms2048m", "-Xmx2048m")
+                .jvmArgs("-server", "-Xms2048m", "-Xmx16384m")
                 .build();
         try {
             new Runner(opt).run();
