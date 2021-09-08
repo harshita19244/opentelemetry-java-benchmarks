@@ -82,4 +82,13 @@ if [ ! -d /tmp/jaeger-1.25.0-linux-amd64 ]; then
     fi
 fi
 
+if [ ! -d /tmp/opentelemetry-collector-0.34.0-linux-amd64 ]; then
+    echo "💾 Downloading opentelemetry-collector"
+    curl -sL https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v0.34.0/otelcol_0.34.0_linux_arm64.tar.gz | tar xzf - -C /tmp/
+    if [ $? != 0 ]; then
+        echo "🛑 Failed to download opentelemetry-collector"
+        exit 1
+    fi
+fi
+
 echo "✅ Done!"
